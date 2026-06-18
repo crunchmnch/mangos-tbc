@@ -39,6 +39,8 @@ COPY . .
 RUN mkdir -p /build && cd /build && \
     cmake /source \
         -DCMAKE_INSTALL_PREFIX=/opt/mangos \
+        -DCMAKE_C_COMPILER=gcc-12 \
+        -DCMAKE_CXX_COMPILER=g++-12 \
         -DPCH=1 \
         -DDEBUG=0 \
         -DBUILD_PLAYERBOTS=ON \
@@ -47,7 +49,7 @@ RUN mkdir -p /build && cd /build && \
         -DBUILD_GIT_ID=ON \
     && make -j$(nproc) \
     && make install
-
+    
 # ============================================================
 # Stage 2: Runtime
 # Minimal image containing only compiled binaries and
