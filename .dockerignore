@@ -1,0 +1,7 @@
+# Exclude non-source content from Docker build context
+# Speeds up builds by not sending unnecessary files to the Docker daemon
+docs/
+custom/sql/
+.git/
+*.md
+*.patch

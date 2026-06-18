@@ -29,6 +29,7 @@ win
 !.gitignore
 !.gitattributes
 !.travis.yml
+!.dockerignore
 
 #
 # Build generated files
