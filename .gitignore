@@ -102,3 +102,6 @@ docker/server-dev/config/*.conf
 docker/server-live/config/*.conf
 docker/server-dev/client-data/
 docker/server-live/client-data/
+docker/server-dev/build.log
+docker/server-dev/logs/
+docker/server-live/logs/
