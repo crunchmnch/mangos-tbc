@@ -100,3 +100,5 @@ cmake_install.cmake
 src/modules/
 docker/server-dev/config/*.conf
 docker/server-live/config/*.conf
+docker/server-dev/client-data/
+docker/server-live/client-data/
