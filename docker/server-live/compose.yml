@@ -1,0 +1,60 @@
+# Live server - friends connect here
+# Start:   docker compose up -d        (run from this directory)
+# Stop:    docker compose down
+# Logs:    docker compose logs -f
+# Rebuild: docker compose up -d --build
+#
+# Auth server on 100.78.207.105:3725
+# World server on 100.78.207.105:8086
+name: mangos-tbc-live
+services:
+  database:
+    image: mariadb:10.11
+    environment:
+      MARIADB_ROOT_PASSWORD: mangos
+      MARIADB_ROOT_HOST: "%"
+    volumes:
+      - db-data:/var/lib/mysql
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      start_period: 30s
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  realmd:
+    build:
+      context: ../..
+      dockerfile: docker/Dockerfile
+    command: /opt/mangos/bin/realmd -c /opt/mangos/etc/realmd.conf
+    depends_on:
+      database:
+        condition: service_healthy
+    ports:
+      - "0.0.0.0:3725:3724"
+    volumes:
+      - ./config:/opt/mangos/etc
+      - ./logs:/opt/mangos/logs
+    restart: unless-stopped
+  mangosd:
+    build:
+      context: ../..
+      dockerfile: docker/Dockerfile
+    command: /opt/mangos/bin/mangosd -c /opt/mangos/etc/mangosd.conf -a /opt/mangos/etc/ahbot.conf
+    stdin_open: true
+    tty: true
+    depends_on:
+      database:
+        condition: service_healthy
+    ports:
+      - "0.0.0.0:8086:8085"
+    volumes:
+      - ./config:/opt/mangos/etc
+      - ./logs:/opt/mangos/logs
+      - map-data:/opt/mangos/data:ro
+    restart: unless-stopped
+volumes:
+  db-data:
+  map-data:
+    external: true
+    name: mangos-tbc-dev_map-data

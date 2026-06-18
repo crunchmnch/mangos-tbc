@@ -14,6 +14,7 @@ hardcore mechanics. Windows 11 host. Docker build and deployment.
 - **Always ask rather than infer** when design intent is unclear.
 - **Always include code examples** when discussing C++ — admin has minimal
   programming experience.
+- Reference online CMaNGOS-TBC documentation rather than making assumptions
 - Prefer slow and safe over fast and risky.
 - Keep markdown files non-verbose and factual.
 
