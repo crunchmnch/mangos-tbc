@@ -1,0 +1,7 @@
+-- Migration: 003
+-- Purpose: Document that ACID must be applied from tbc-db/ACID/acid_tbc.sql
+-- Reason: ACID populates creature_ai_scripts (19364 rows) needed for creature
+--         EventAI behavior. Without it mangosd crashes at Map System startup.
+-- Note: This file is a marker only. ACID is applied directly from tbc-db repo.
+--       When rebuilding: docker cp tbc-db/ACID/acid_tbc.sql into container
+--       then: mysql -uroot -pmangos tbcmangos < /tmp/acid_tbc.sql
