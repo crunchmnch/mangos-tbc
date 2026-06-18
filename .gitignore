@@ -98,3 +98,5 @@ cmake_install.cmake
 # Module files
 #
 src/modules/
+docker/server-dev/config/*.conf
+docker/server-live/config/*.conf
