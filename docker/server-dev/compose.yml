@@ -64,3 +64,5 @@ services:
 volumes:
   db-data:
   map-data:
+    external: true
+    name: mangos-tbc-dev_map-data

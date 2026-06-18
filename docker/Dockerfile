@@ -66,6 +66,7 @@ RUN apt-get update && apt-get install -y \
     libbz2-dev \
     libboost-all-dev \
     libreadline-dev \
+    netcat-openbsd \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /opt/mangos /opt/mangos
