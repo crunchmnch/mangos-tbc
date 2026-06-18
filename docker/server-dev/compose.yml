@@ -48,6 +48,8 @@ services:
       context: ../..
       dockerfile: docker/Dockerfile
     command: /opt/mangos/bin/mangosd -c /opt/mangos/etc/mangosd.conf -a /opt/mangos/etc/ahbot.conf
+    stdin_open: true
+    tty: true
     depends_on:
       database:
         condition: service_healthy
