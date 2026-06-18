@@ -4,9 +4,7 @@
 Accepted
 
 ## Context
-Need a module system to access existing CMaNGOS modules (particularly the 
-Hardcore module as a foundation for custom mechanics) without abandoning 
-the official CMaNGOS-TBC lineage.
+Need a module system to access existing CMaNGOS modules particularly the Hardcore module as a foundation for custom mechanics) without abandoning the official CMaNGOS-TBC lineage.
 
 ## Decision
 Apply the flekz-games/cmangos-modules tbc.patch to our fork of cmangos/mangos-tbc.
