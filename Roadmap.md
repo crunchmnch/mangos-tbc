@@ -11,13 +11,13 @@ Infrastructure before features. Each phase must be stable before moving on.
 - [x] Core documentation — CLAUDE.md, runbooks, ADRs
 
 ## Phase 2: Server Administration (Next Session)
-- [ ] Backup strategy — nightly mysqldump, rclone to cloud, tested restore procedure
+- [x] Backup strategy — nightly mysqldump, rclone to cloud, tested restore procedure
       Why: characters database is irreplaceable; hardware failure is a real risk
-- [ ] server-live setup — production instance, separate volume, separate config
+- [x] server-live setup — production instance, separate volume, separate config
       Why: never develop on the live server; friends connect here only
-- [ ] Tailscale — private network overlay for friend connections
+- [x] Tailscale — private network overlay for friend connections
       Why: no port forwarding, stable IPs, works on dynamic home internet
-- [ ] DB administration session — HeidiSQL best practices, safe change workflow
+- [x] DB administration session — HeidiSQL best practices, safe change workflow
       Why: most custom work happens in the DB; bad habits cause permanent damage
 
 ## Phase 3: Project Management
