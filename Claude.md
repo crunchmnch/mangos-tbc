@@ -3,6 +3,12 @@
 CMaNGOS-TBC (C++) WoW 2.4.3 emulator. Private 10-person server with custom
 hardcore mechanics. Windows 11 host. Docker build and deployment.
 
+## ⏸️ PROJECT PAUSED (2026-06-18)
+Development paused to evaluate AzerothCore as an alternative to CMaNGOS-TBC.
+See SESSION-LOG.md "Session 3" entry for full context and resume instructions.
+Do not resume CMaNGOS-TBC work or begin AzerothCore work without discussing
+with the user first.
+
 ## Agent Rules
 
 - **Never build Docker images without being asked.** Builds take 15-30 minutes.
