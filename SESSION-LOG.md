@@ -3,6 +3,44 @@ Hand this to Claude at the start of every session along with CLAUDE.md and Roadm
 For continuity, paste the most recent session entry (or more if needed) into the chat.
 
 ---
+## 2026-06-18 — Session 3 — PROJECT PAUSED
+### Why
+Investigated a bug where Rockbiter Weapon (all ranks except rank 5) consumes
+mana but applies no aura — confirmed via spell_template inspection that
+ranks 1-4 have broken effect data (DurationIndex=0, Effect2=3 instead of a
+proper apply-aura effect). Confirmed this is an upstream CMaNGOS/TBC-DB content
+bug, not something caused by our setup — we used the official, actively
+maintained cmangos/tbc-db repository (latest release Feb 2026).
+
+This bug, combined with prior experience running AzerothCore (leveled a full
+team to ~50 with a near-flawless experience), raised real doubt about CMaNGOS-TBC
+content quality. Decision: pause CMaNGOS-TBC development and evaluate
+AzerothCore as an alternative before investing further time, especially before
+any Phase 5 custom C++ implementation begins.
+
+### Follow-up flagged for later
+- A contributor recently refactored spell-related code in mangos-tbc that
+  touched Rockbiter Weapon. Worth checking whether this refactor is related
+  to the bug, win the project resumes or before fully committing to switching.
+
+### Pause Checklist (completed)
+- [x] Docker containers stopped (dev and live) — `docker compose down`,
+      volumes preserved, no data loss
+- [x] Tailscale uninstalled (decided against before this pause)
+- [x] Nightly backup Task Scheduler job (`KirbyTBC-DatabaseBackup`) disabled,
+      not deleted — backup data on disk preserved
+- [x] All outstanding changes committed to dev branch (commit d2be20632)
+- [x] Session log and Roadmap updated to reflect paused state
+
+### State to Resume From
+- All CMaNGOS-TBC work (Docker setup, runbooks, design docs, accounts) is
+  intact and committed. Resuming CMaNGOS-TBC later is just `docker compose up -d`
+  in both server-dev and server-live, plus re-enabling the backup task.
+- Phase 4 death penalty design (docs/design/001-death-penalty-system.md) is
+  core-agnostic and would carry over to AzerothCore if we switch.
+- Next planning session: discuss AzerothCore evaluation/setup from scratch.
+
+---
 ## 2026-06-18 — Session 2
 ### Completed
 - Account creation runbook written: docs/runbooks/account-creation.md
